@@ -16,26 +16,26 @@ class BaseMethods:
         print(f"url = {url}")
         get_json = response.json()
         print(get_json)
-        # response.raise_for_status()
-        # return json.loads(response.content)
-
+        assert response.status_code == 200
     @allure.step("Отправка пост запорса")
     def post_request(self, endpoint, data=None):
         url = self.base_url + endpoint
         json_data = {
-                    "firstname" : "gasga",
-                    "lastname" : "Brown",
-                    "totalprice" : 111,
-                    "depositpaid" : true,
-                    "bookingdates" : {
-                        "checkin" : "2018-01-01",
-                        "checkout" : "2019-01-01"
-                    },
-                    "additionalneeds" : "Breakfast"
-                }
+                        "firstname" : "Jes",
+                        "lastname" : "Brown",
+                        "totalprice" : random.randint(50, 150),
+                        "depositpaid" : "true",
+                        "bookingdates" : {
+                            "checkin" : "2023-01-01",
+                            "checkout" : "2024-01-01"
+                        },
+                        "additionalneeds" : "Breakfast"
+                    }
         response = requests.post(url, json=json_data)
         response.raise_for_status()
-        return json.loads(response.content)
+        get_json = response.json()
+        print(get_json)
+        assert response.status_code == 200
 
     def put(self, endpoint, data=None):
         url = self.base_url + endpoint
