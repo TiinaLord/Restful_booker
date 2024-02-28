@@ -7,9 +7,12 @@ def test_get_booking(base_url):
     get_request_booking.get_booking_endpoint()
 
 
-def test_get_booking_with_params(base_url):
+@pytest.mark.parametrize(("firstname", "lastname"),
+                         [("Susan", "Brown"), ("Eric", "Wilson"), ("Mary", "Jackson"), ("Sally", "Jones"),
+                          ("Sally", "Jones"), ("Mark", "Jones"), ("Mary", "Smith")])
+def test_get_booking_with_params(base_url, firstname, lastname):
     get_request_booking = GetRequest(base_url)
-    get_request_booking.get_booking_endpoint()
+    get_request_booking.get_booking_endpoint_with_params(firstname, lastname)
 
 
 @pytest.mark.parametrize("id_booking", ["1", "2", "3", "4", "5", "10", "101", "111", "222", "333"])

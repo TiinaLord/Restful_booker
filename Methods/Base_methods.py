@@ -23,7 +23,7 @@ class BaseMethods:
         json_data = {
                         "firstname" : "Jes",
                         "lastname" : "Brown",
-                        "totalprice" : random.randint(50, 150),
+                        "totalprice" : random.randint(50, 800),
                         "depositpaid" : "true",
                         "bookingdates" : {
                             "checkin" : "2023-01-01",
