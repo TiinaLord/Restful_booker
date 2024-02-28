@@ -17,7 +17,6 @@ def pytest_addoption(parser):
     )
 
 
-
 # def url(request):
 #     base_url = request.config.getoption("--base_url")
 #     log_level = request.config.getoption("--log_level")
