@@ -17,27 +17,28 @@ def pytest_addoption(parser):
     )
 
 
-# def url(request):
-#     base_url = request.config.getoption("--base_url")
-#     log_level = request.config.getoption("--log_level")
-#
-#     logger = logging.getLogger(request.node.name)
-#     logger.setLevel(level=log_level)
-#     logger.info("===> Test %s started at %s" % (request.node.name, datetime.datetime.now()))
-#
-#     allure.attach(
-#         name=base_url.session_id,
-#         body=json.dumps(base_url.capabilities),
-#         attachment_type=allure.attachment_type.JSON)
-#     base_url.log_level = log_level
-#     base_url.logger = logger
-#     base_url.test_name = request.node.name
-#     logger.info("Tests %s started" % url)
-#
-#     def fin():
-#         logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
-#
-#     request.addfinalizer(fin)
+def allure_attach(request):
+    base_url = request.config.getoption("--base_url")
+    log_level = request.config.getoption("--log_level")
+
+    logger = logging.getLogger(request.node.name)
+    logger.setLevel(level=log_level)
+    logger.info("===> Test %s started at %s" % (request.node.name, datetime.datetime.now()))
+
+    allure.attach(
+        name=base_url.session_id,
+        body=json.dumps(base_url.capabilities),
+        attachment_type=allure.attachment_type.JSON)
+    base_url.log_level = log_level
+    base_url.logger = logger
+    base_url.test_name = request.node.name
+    logger.info("Tests %s started")
+
+    def fin():
+        logger.info("===> Test %s finished at %s" % (request.node.name, datetime.datetime.now()))
+
+    request.addfinalizer(fin)
+
 
 @pytest.fixture
 def base_url(request):

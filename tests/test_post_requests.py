@@ -13,6 +13,3 @@ def test_post_booking(base_url):
 def test_post_several_booking(base_url, firstname, lastname):
     post_request_booking = PostRequest(base_url)
     post_request_booking.post_create_several_booking(firstname, lastname)
-
-
-
