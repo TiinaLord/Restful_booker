@@ -1,6 +1,6 @@
 import random
 import requests
-from Restful_booker.Methods.Base_methods import BaseMethods
+from Base_methods import BaseMethods
 
 
 class PostRequest(BaseMethods):
