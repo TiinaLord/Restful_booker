@@ -1,4 +1,4 @@
-from Restful_booker.Methods.GET import GetRequest
+from Methods.GET import GetRequest
 import pytest
 
 

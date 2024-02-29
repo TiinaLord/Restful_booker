@@ -1,4 +1,4 @@
-from Restful_booker.Methods.POST import PostRequest
+from Methods.POST import PostRequest
 import pytest
 
 
