@@ -1,6 +1,6 @@
 import random
 import requests
-from Base_methods import BaseMethods
+from Methods.Base_methods import BaseMethods
 
 
 class PostRequest(BaseMethods):
