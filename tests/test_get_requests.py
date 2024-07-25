@@ -20,8 +20,8 @@ def test_get_booking_by_id(base_url, id_booking):
     get_request_booking = GetRequest(base_url)
     get_request_booking.get_booking_by_id(id_booking)
 
-@pytest.mark.parametrize("id_booking", ["0", "-1", "9999", "test", ""])
-def test_negative_get_booking_by_id(base_url, id_booking):
+@pytest.mark.parametrize("id_booking", ["0", "-1", "9999", "test", "(1)", "/"])
+def test_negative_get_booking_by_invalid_id(base_url, id_booking):
     get_request_booking = GetRequest(base_url)
     get_request_booking.get_negative_booking_by_id(id_booking)
 

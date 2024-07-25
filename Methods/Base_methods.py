@@ -12,7 +12,7 @@ class BaseMethods:
         self.base_url = base_url
 
 
-    @allure.step("Получение GET запорса")
+    @allure.step("Отправка GET запорса")
     def get_request(self, endpoint, params=None):
         url = self.base_url + endpoint
         response = requests.get(url, params=params)
@@ -22,7 +22,7 @@ class BaseMethods:
         else:
             raise ValueError(f"Ошибка: {response.status_code}")
 
-    @allure.step("Получение неправильного GET запорса")
+    @allure.step("Отправка невалидного GET запорса")
     def get_invalid_request(self, endpoint, params=None):
         url = self.base_url + endpoint
         response = requests.get(url, params=params)
